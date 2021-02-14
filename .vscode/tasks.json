@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "rust: cargo check",
+			"type": "shell",
+			"command": "cargo check --target=thumbv7m-none-eabi --color=always 2>&1",
+			"presentation": {
+				"clear": true
+			},
+			// "group": {
+			// 	"kind": "build",
+			// 	"isDefault": true
+			// },
+		},
+		{
+			"label": "rust: cargo test",
+			"type": "shell",
+			"command": "cargo test --target=x86_64-unknown-linux-gnu --color=always 2>&1",
+			"presentation": {
+				"clear": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		},
+		{
+			"type": "shell",
+			"label": "cargo build tests",
+			"command": "cargo",
+			"args": [
+				"rustc",
+				"--target=x86_64-unknown-linux-gnu",
+				"--lib",
+				// "--test=tsan",
+				"--profile=test",
+				"--",
+				"-Copt-level=0",
+				"--emit", "link=target/tests",
+			],
+			"presentation": {
+				"clear": true
+			},
+		}
+	]
+}

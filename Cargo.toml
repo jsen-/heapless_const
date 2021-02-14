@@ -1,0 +1,26 @@
+[package]
+edition = "2018"
+authors = ["Jorge Aparicio <jorge@japaric.io>"]
+categories = [
+    "data-structures",
+    "no-std",
+]
+description = "`static` friendly data structures that don't require dynamic memory allocation"
+documentation = "https://docs.rs/heapless"
+keywords = [
+    "static",
+    "no-heap",
+]
+license = "MIT OR Apache-2.0"
+name = "heapless_const"
+repository = "https://github.com/japaric/heapless"
+version = "0.2.1"
+
+[dev-dependencies]
+scoped_threadpool = "0.1.9"
+
+[dependencies]
+hash32 = "0.1.1"
+
+[features]
+single_core = []
